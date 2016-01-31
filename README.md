@@ -1,3 +1,9 @@
+!!!!!!!!!!!   DO NOT MERGE           !!!!!!!!!!!!!!!!
+This is the README.md file for the demo branch.
+This branch is not intended to be merged at any time.
+It is used during live demo's to trigger builds etc.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 A simple logging simulator used to test long running microservices on Azure Container Service.
 
 This project consists of a number of Docker containers each desinged to perform a specific function. The main containers are:
