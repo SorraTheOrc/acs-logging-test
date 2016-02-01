@@ -20,7 +20,7 @@ class Queue:
         self.log = Log()
         self.queue_type = config.ACS_LOGGING_QUEUE_TYPE
         self.queue_name = queue_name
-        self.log.info("Queue type: " + self.queue_type)
+        self.log.debug("Queue type: " + self.queue_type + " / " + self.queue_name)
 
         if self.queue_type == "AzureStorageQueue":
             self.createAzureQueues(account_name, account_key)
@@ -73,6 +73,9 @@ class Queue:
         #  with open(config.PROCESSED_LOG_FILE, 'a') as processed:
         #    processed.write(log)
         #  os.remove(config.UNPROCESSED_LOG_FILE)
+
+    def delete_queue(self, queue_name):
+        queue_service.delete_queue(queue_name)
 
     def getLength(self):
         """
