@@ -1,4 +1,4 @@
-FROM rgardler/acs-logging-test-base:tr22
+FROM rgardler/acs-logging-test-base
 
 COPY src src
 

@@ -23,7 +23,7 @@ echo "Output the status of the queue every 5 seconds"
 echo "======================================================================================="
 for i in {1..3}
 do
-    docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli:tr22 summary
+    docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli summary
     echo ""
     docker-compose ps
     echo "======================================================================================="
@@ -38,7 +38,7 @@ clear
 
 for i in {1..10}
 do
-    length=$(docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli:tr22 length)
+    length=$(docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli length)
 
     echo ""
 
