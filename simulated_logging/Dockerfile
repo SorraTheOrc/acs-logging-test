@@ -1,4 +1,4 @@
-FROM rgardler/acs-logging-test-base
+FROM rgardler/acs-logging-test-base:tr22
 
 RUN pip install requests
 

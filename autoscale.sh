@@ -3,6 +3,9 @@
 # Demonstrate the scaling up and down of analysers in response to the
 # length of the queue.
 
+docker-compose stop
+docker-compose rm
+
 clear
 echo "Starting one producer and ten analyzer"
 echo "======================================================================================="
@@ -20,7 +23,7 @@ echo "Output the status of the queue every 5 seconds"
 echo "======================================================================================="
 for i in {1..3}
 do
-    docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli summary
+    docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli:tr22 summary
     echo ""
     docker-compose ps
     echo "======================================================================================="
@@ -35,7 +38,7 @@ clear
 
 for i in {1..10}
 do
-    length=$(docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli length)
+    length=$(docker run -e ACS_LOGGING_QUEUE_TYPE=AzureStorageQueue rgardler/acs-logging-test-cli:tr22 length)
 
     echo ""
 

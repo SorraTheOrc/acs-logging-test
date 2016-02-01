@@ -4,6 +4,14 @@ This branch is not intended to be merged at any time.
 It is used during live demo's to trigger builds etc.
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
+# Setting up a Demo
+
+  * ensure you have a config.py with appropriate leys
+  * change the default values for the storage queue and table
+  * set SIMULATION_ACTIONS and SIMULATION_DELAY to numbers that work for your style of demo
+  * run ./setup.sh
+
 A simple logging simulator used to test long running microservices on Azure Container Service.
 
 This project consists of a number of Docker containers each desinged to perform a specific function. The main containers are:
