@@ -78,6 +78,6 @@ if __name__ == "__main__":
     except:
       e = sys.exc_info()[0]
       hostname = socket.gethostname()
-      log.error("Unable to simulate logging", exc_info=True)
+      log.error("Unable to simulate logging")
       notify.error(hostname + ": ACS Logging simulation failed")
       mailhandler.send(hostname + ": ACS Logging simulation failed", "Check logs on " + hostname + " for details")
