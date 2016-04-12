@@ -30,7 +30,6 @@ class MatchAnalyzer:
         count = self.summary.getCount(count_type)
         count = count + 1
         self.summary.updateCount(count_type, count)
-        print(count_type + ' is now ' + str(count))
         
     def fullAnalysis(self):
         while True:
