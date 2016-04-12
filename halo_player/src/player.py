@@ -34,6 +34,10 @@ class PlayerService:
         count = self.summary.getCount(count_type)
         stats.append({"DNF": count})
         
+        count_type = gamertag + "_matches_processed"
+        count = self.summary.getCount(count_type)
+        stats.append({"matches_processed": count})
+
         return stats
 
 if __name__ == "__main__":

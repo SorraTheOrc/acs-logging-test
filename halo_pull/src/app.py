@@ -21,7 +21,9 @@ def get_matches_for_player(gamertag):
         'Ocp-Apim-Subscription-Key': config.HALO_API_KEY,
     }
 
-    start = get_match_count(gamertag)
+    summary = SummaryTable(config.AZURE_STORAGE_ACCOUNT_NAME, config.AZURE_STORAGE_ACCOUNT_KEY, config.AZURE_STORAGE_SUMMARY_TABLE_NAME)
+    count_type = gamertag + "_matches_processed"
+    start = summary.getCount(count_type)
     params = urllib.parse.urlencode({
         # Request parameters
         # 'modes': '{string}',
@@ -65,15 +67,10 @@ def increment_match_count(gamertag, amount = 1):
     Get the count of matches we are aware of for a given player.
     """
     summary = SummaryTable(config.AZURE_STORAGE_ACCOUNT_NAME, config.AZURE_STORAGE_ACCOUNT_KEY, config.AZURE_STORAGE_SUMMARY_TABLE_NAME)
-    count = get_match_count(gamertag)
+    count_type = gamertag + "_matches_processed"
+    count = summary.getCount(count_type)
     count = count + amount
-    count_type = gamertag + "_match"
     summary.updateCount(count_type, count)
-
-def get_match_count(gamertag):
-    summary = SummaryTable(config.AZURE_STORAGE_ACCOUNT_NAME, config.AZURE_STORAGE_ACCOUNT_KEY, config.AZURE_STORAGE_SUMMARY_TABLE_NAME)
-    count_type = gamertag + "_match"
-    return summary.getCount(count_type)
 
 if __name__ == "__main__":
     for player in get_players():
