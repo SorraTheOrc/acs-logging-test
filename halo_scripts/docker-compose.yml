@@ -1,0 +1,12 @@
+match_pull:
+  build: ../halo_pull
+  env_file:
+    - ./env.conf
+match_analysis:
+  build: ../halo_match_analysis
+  env_file:
+    - ./env.conf
+player_service:
+  build: ../halo_player
+  env_file:
+    - ./env.conf
